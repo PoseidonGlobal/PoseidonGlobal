@@ -166,7 +166,7 @@ app.post("/chatbot", async (req, res) => {
 
 // WebSocket server setup
 const WebSocket = require("ws");
-const wss = new WebSocket.Server({ port: 160 }); // Use a different port to avoid conflicts with HTTP server
+const wss = new WebSocket.Server({ port: 3001 }); // Use a different port to avoid conflicts with HTTP server
 
 wss.on("connection", (ws) => {
     console.log("New WebSocket connection established!");
@@ -182,7 +182,7 @@ wss.on("connection", (ws) => {
 });
 
 // Server Startup ✅ Explicitly bound to `0.0.0.0`
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 3000;
 server.listen(PORT, "0.0.0.0", () => {
-    console.log(`Poseidon Global backend running at http://${process.env.SERVER_IP}:${PORT}`);
+    console.log(`Poseidon Global backend running at http://0.0.0.0:${PORT}`);
 });
